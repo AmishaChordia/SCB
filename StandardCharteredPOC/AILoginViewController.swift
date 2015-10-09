@@ -12,7 +12,7 @@ let animationDuration = 0.4
 let loginViewTopConstraintDefault = 205
 let lessThanIP6Width = 320
 
-class AILoginViewController: UIViewController {
+class AILoginViewController: AIBaseViewController {
     
     
     @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
@@ -39,8 +39,8 @@ class AILoginViewController: UIViewController {
     }
     
     func pushToDashboard() {
-//        let dashboard = AIDashboardViewController.createDashboardVCInstance()
-//        navigationController?.pushViewController(dashboard, animated: true)
+        let dashboard = AIDashboardViewController.createDashboardVCInstance()
+        navigationController?.pushViewController(dashboard, animated: true)
     }
     
     //MARK: IBAction
@@ -103,27 +103,27 @@ extension AILoginViewController : UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        if isLessThanIP6 {
-            if logoTopConstraint.constant == 0 {
-                self.logoTopConstraint.constant = CGFloat(-loginViewTopConstraintDefault)
-                UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                    self.view.layoutIfNeeded()
-                    }) { (finished) -> Void in
-                }
-            }
-        }
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        if isLessThanIP6 {
-            if logoTopConstraint.constant < 0  {
-                self.logoTopConstraint.constant = 0
-                UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                    self.view.layoutIfNeeded()
-                    }) { (finished) -> Void in
-                }
-            }
-        }
-    }
+//    func textFieldDidBeginEditing(textField: UITextField) {
+//        if isLessThanIP6 {
+//            if logoTopConstraint.constant == 0 {
+//                self.logoTopConstraint.constant = CGFloat(-loginViewTopConstraintDefault)
+//                UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+//                    self.view.layoutIfNeeded()
+//                    }) { (finished) -> Void in
+//                }
+//            }
+//        }
+//    }
+//    
+//    func textFieldDidEndEditing(textField: UITextField) {
+//        if isLessThanIP6 {
+//            if logoTopConstraint.constant < 0  {
+//                self.logoTopConstraint.constant = 0
+//                UIView.animateWithDuration(animationDuration, delay: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+//                    self.view.layoutIfNeeded()
+//                    }) { (finished) -> Void in
+//                }
+//            }
+//        }
+//    }
 }

@@ -30,16 +30,19 @@ class AIMicInteractionView: UIView , WitDelegate {
     
     func witDidGraspIntent(outcomes: [AnyObject]!, messageId: String!, customData: AnyObject!, error e: NSError!) {
         if (e != nil) {
-            
+            errorUnderstandingIntent()
         }
         else {
             if outcomes != nil && outcomes.count > 0 {
               
             }
             else {
-                AISpeechClient.readCurrentString(Constants.AIStrings.AIErrorString)
+                errorUnderstandingIntent()
             }
         }
     }
     
+    func errorUnderstandingIntent() {
+        AISpeechClient.readCurrentString(Constants.AIStrings.AIErrorString)
+    }
 }
