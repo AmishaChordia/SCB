@@ -29,6 +29,6 @@ class AIIntentModel: NSObject {
             entity = AIEntityModel(dict: userEntity)
         }
         
-        print(intent,confidence,entity?.currency,entity?.datetime)
+//        print(intent,confidence,entity?.currency,entity?.datetime)
     }
 }

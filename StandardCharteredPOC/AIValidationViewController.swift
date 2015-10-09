@@ -64,7 +64,7 @@ class AIValidationViewController: AIBaseViewController {
     }
     
     func userSetReminderSuccessfully() {
-        let currencyString = (intentModel.entity?.currency)! + "- SGD"
+        let currencyString = (intentModel.entity?.currency)! + "and SGD"
         AISpeechClient.readCurrentString(Constants.AIStrings.AIReminderString + currencyString)
     }
     

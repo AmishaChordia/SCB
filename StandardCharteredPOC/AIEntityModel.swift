@@ -28,7 +28,13 @@ class AIEntityModel: NSObject {
             if let timeValues = dict.valueForKey(AITime) as? NSArray {
                 if timeValues.count > 0 {
                     if let timeDict = timeValues.firstObject as? NSDictionary {
-                        datetime = timeDict.valueForKey(AIEntityValue) as? String
+                        
+                        if let date = timeDict.valueForKey(AIEntityValue) as? String {
+                            
+                            
+                           datetime = date.componentsSeparatedByString("T").first
+                        }
+                        
                     }
                 }
             }

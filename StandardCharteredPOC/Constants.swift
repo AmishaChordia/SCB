@@ -30,7 +30,7 @@ class Constants {
     struct AIStrings {
         static let AIErrorString : String = "Sorry!  I did not get that. Please say that again!"
         static let AICurrencyErrorString : String = "Sorry! I did not clearly get the currency."
-        static let AIReminderString : String = "Setting a reminder to book FX contracts for "
+        static let AIReminderString : String = "Setting a reminder to book forex contracts for "
     }
 
 }
