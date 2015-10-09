@@ -854,7 +854,7 @@
                                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="123" id="6Dn-OP-b2y">
-                                                                <variation key="heightClass=regular-widthClass=compact" constant="115"/>
+                                                                <variation key="heightClass=regular-widthClass=compact" constant="135"/>
                                                             </constraint>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>

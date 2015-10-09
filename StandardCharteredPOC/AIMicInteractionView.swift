@@ -9,10 +9,10 @@
 import UIKit
 
 class AIMicInteractionView: UIView , WitDelegate {
-
+    
     @IBOutlet weak var micTextLabel: UILabel!
     @IBOutlet weak var micView: UIView!
-        
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpViewProperties()
@@ -34,7 +34,19 @@ class AIMicInteractionView: UIView , WitDelegate {
         }
         else {
             if outcomes != nil && outcomes.count > 0 {
-              
+                if let dataDict : NSDictionary = outcomes.first as? NSDictionary {
+                    
+                    let userIntent : AIIntentModel = AIIntentModel(dict: dataDict)
+                    if userIntent.entity?.currency != nil {
+                        // data is correct
+                    }
+                    else {
+                        errorUnderstandingIntent()
+                    }
+                }
+                else {
+                   errorUnderstandingIntent()
+                }
             }
             else {
                 errorUnderstandingIntent()

@@ -26,6 +26,8 @@
 		4EB8AAB21BC7F888005C5953 /* AIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB8AAB11BC7F888005C5953 /* AIBaseViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EB8AAB51BC7F93C005C5953 /* AIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB8AAB41BC7F93C005C5953 /* AIFont.swift */; settings = {ASSET_TAGS = (); }; };
 		4EB8AAB91BC80303005C5953 /* ting.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EB8AAB81BC802F8005C5953 /* ting.ttf */; };
+		4EB8AABB1BC80980005C5953 /* AIIntentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB8AABA1BC80980005C5953 /* AIIntentModel.swift */; settings = {ASSET_TAGS = (); }; };
+		4EB8AABE1BC80C45005C5953 /* AIEntityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB8AABD1BC80C45005C5953 /* AIEntityModel.swift */; settings = {ASSET_TAGS = (); }; };
 		5B563896D015E8CB15DCEA95 /* libPods-StandardCharteredPOC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 943E4A0EA4588BFE75EE81A1 /* libPods-StandardCharteredPOC.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		4EB8AAB11BC7F888005C5953 /* AIBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIBaseViewController.swift; sourceTree = "<group>"; };
 		4EB8AAB41BC7F93C005C5953 /* AIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIFont.swift; sourceTree = "<group>"; };
 		4EB8AAB81BC802F8005C5953 /* ting.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ting.ttf; sourceTree = "<group>"; };
+		4EB8AABA1BC80980005C5953 /* AIIntentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIntentModel.swift; sourceTree = "<group>"; };
+		4EB8AABD1BC80C45005C5953 /* AIEntityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIEntityModel.swift; sourceTree = "<group>"; };
 		943E4A0EA4588BFE75EE81A1 /* libPods-StandardCharteredPOC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StandardCharteredPOC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA096A5BC32396296A3EB2A /* Pods-StandardCharteredPOC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCharteredPOC.release.xcconfig"; path = "Pods/Target Support Files/Pods-StandardCharteredPOC/Pods-StandardCharteredPOC.release.xcconfig"; sourceTree = "<group>"; };
 		ABE6B8F7507134429B5D5B0B /* Pods-StandardCharteredPOC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StandardCharteredPOC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StandardCharteredPOC/Pods-StandardCharteredPOC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				4EB8AAB11BC7F888005C5953 /* AIBaseViewController.swift */,
+				4EB8AABC1BC80984005C5953 /* Model */,
 				4EB8AAB01BC7F83F005C5953 /* Dashboard */,
 				4EB8AAA91BC7EC4E005C5953 /* Assets */,
 				4E49AE4C1BC7CE9300E88CBD /* AppDelegate.swift */,
@@ -155,6 +160,15 @@
 				4EB8AAAE1BC7F610005C5953 /* AIDashboardViewController.swift */,
 			);
 			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		4EB8AABC1BC80984005C5953 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EB8AABA1BC80980005C5953 /* AIIntentModel.swift */,
+				4EB8AABD1BC80C45005C5953 /* AIEntityModel.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		564BC88CD816207443DD55B3 /* Pods */ = {
@@ -293,6 +307,8 @@
 				4EB8AA991BC7E520005C5953 /* AILoginViewController.swift in Sources */,
 				4EB8AAAF1BC7F610005C5953 /* AIDashboardViewController.swift in Sources */,
 				4E49AE4D1BC7CE9300E88CBD /* AppDelegate.swift in Sources */,
+				4EB8AABB1BC80980005C5953 /* AIIntentModel.swift in Sources */,
+				4EB8AABE1BC80C45005C5953 /* AIEntityModel.swift in Sources */,
 				4EB8AA9B1BC7E520005C5953 /* KeychainWrapper.m in Sources */,
 				4EB8AAA41BC7EB4E005C5953 /* AIMicInteractionView.swift in Sources */,
 				4EB8AA9D1BC7E579005C5953 /* Constants.swift in Sources */,
