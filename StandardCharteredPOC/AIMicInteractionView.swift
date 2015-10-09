@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol micViewProtocol {
+    func userDidSelectIntent(intentModel : AIIntentModel)
+}
+
 class AIMicInteractionView: UIView , WitDelegate {
     
     @IBOutlet weak var micTextLabel: UILabel!
     @IBOutlet weak var micView: UIView!
+    var delegate : micViewProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +35,7 @@ class AIMicInteractionView: UIView , WitDelegate {
     
     func witDidGraspIntent(outcomes: [AnyObject]!, messageId: String!, customData: AnyObject!, error e: NSError!) {
         if (e != nil) {
-            errorUnderstandingIntent()
+            errorUnderstandingIntent(Constants.AIStrings.AIErrorString)
         }
         else {
             if outcomes != nil && outcomes.count > 0 {
@@ -39,22 +44,23 @@ class AIMicInteractionView: UIView , WitDelegate {
                     let userIntent : AIIntentModel = AIIntentModel(dict: dataDict)
                     if userIntent.entity?.currency != nil {
                         // data is correct
+                       self.delegate?.userDidSelectIntent(userIntent)
                     }
                     else {
-                        errorUnderstandingIntent()
+                        errorUnderstandingIntent(Constants.AIStrings.AICurrencyErrorString)
                     }
                 }
                 else {
-                   errorUnderstandingIntent()
+                    errorUnderstandingIntent(Constants.AIStrings.AIErrorString)
                 }
             }
             else {
-                errorUnderstandingIntent()
+                errorUnderstandingIntent(Constants.AIStrings.AIErrorString)
             }
         }
     }
     
-    func errorUnderstandingIntent() {
-        AISpeechClient.readCurrentString(Constants.AIStrings.AIErrorString)
+    func errorUnderstandingIntent(string : String) {
+        AISpeechClient.readCurrentString(string)
     }
 }

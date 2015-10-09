@@ -13,7 +13,7 @@ class AISpeechClient: NSObject {
    static func readCurrentString(str : String) {
     let synth = AVSpeechSynthesizer()
     let utterance = AVSpeechUtterance(string: str)
-        utterance.rate = 0.55
+        utterance.rate = 0.45
         do {
             try  AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.Speaker)
         }

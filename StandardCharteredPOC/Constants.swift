@@ -17,24 +17,20 @@ class Constants {
     }
 
     struct WITIntents {
-        static let WITBlockCard : String = "block_card"
-        static let WITTransferMoney : String = "transfer_money"
-        static let WITBalance : String = "discrete_balance"
-        static let WITChangePIN : String = "change_PIN"
+        static let WITFxPosition : String = "FX_Position"
+       
 
     }
     
     struct WITRequisites {
         static let AIToken : String = "4H4FTQZYSRHNGNT2A6XFHC7VPNLWKL3H"
-        static let AIConfidence = 0.3
+        static let AIConfidence = 0.4
     }
     
     struct AIStrings {
         static let AIErrorString : String = "Sorry!  I did not get that. Please say that again!"
-        static let AIPersonErrorString : String = "Sorry! I did not get the person's name to trasfer your amount."
-        static let AIMoneyErrorString : String = "Sorry! I did not get the amount of money to trasfer."
-
-
+        static let AICurrencyErrorString : String = "Sorry! I did not clearly get the currency."
+        static let AIReminderString : String = "Setting a reminder to book FX contracts for "
     }
 
 }

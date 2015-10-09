@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E3ACBD31BC81BDD00EA2C0C /* AIValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3ACBD11BC81BDD00EA2C0C /* AIValidationViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4E3ACBD41BC81BDD00EA2C0C /* AIIntentValidationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3ACBD21BC81BDD00EA2C0C /* AIIntentValidationClient.swift */; settings = {ASSET_TAGS = (); }; };
 		4E49AE4D1BC7CE9300E88CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49AE4C1BC7CE9300E88CBD /* AppDelegate.swift */; };
 		4E49AE521BC7CE9300E88CBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E49AE501BC7CE9300E88CBD /* Main.storyboard */; };
 		4E49AE551BC7CE9400E88CBD /* StandardCharteredPOC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E49AE531BC7CE9400E88CBD /* StandardCharteredPOC.xcdatamodeld */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E3ACBD11BC81BDD00EA2C0C /* AIValidationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIValidationViewController.swift; sourceTree = "<group>"; };
+		4E3ACBD21BC81BDD00EA2C0C /* AIIntentValidationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIntentValidationClient.swift; sourceTree = "<group>"; };
 		4E49AE491BC7CE9300E88CBD /* StandardCharteredPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StandardCharteredPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E49AE4C1BC7CE9300E88CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E49AE511BC7CE9300E88CBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E3ACBD51BC81BE700EA2C0C /* ValidationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4E3ACBD11BC81BDD00EA2C0C /* AIValidationViewController.swift */,
+				4E3ACBD21BC81BDD00EA2C0C /* AIIntentValidationClient.swift */,
+			);
+			name = ValidationScreen;
+			sourceTree = "<group>";
+		};
 		4E49AE401BC7CE9300E88CBD = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				4EB8AAB11BC7F888005C5953 /* AIBaseViewController.swift */,
+				4E3ACBD51BC81BE700EA2C0C /* ValidationScreen */,
 				4EB8AABC1BC80984005C5953 /* Model */,
 				4EB8AAB01BC7F83F005C5953 /* Dashboard */,
 				4EB8AAA91BC7EC4E005C5953 /* Assets */,
@@ -301,6 +315,7 @@
 				4EB8AAB51BC7F93C005C5953 /* AIFont.swift in Sources */,
 				4EB8AAB21BC7F888005C5953 /* AIBaseViewController.swift in Sources */,
 				4EB8AAA61BC7EB4E005C5953 /* AISpeechClient.swift in Sources */,
+				4E3ACBD31BC81BDD00EA2C0C /* AIValidationViewController.swift in Sources */,
 				4E49AE551BC7CE9400E88CBD /* StandardCharteredPOC.xcdatamodeld in Sources */,
 				4EB8AAA71BC7EB4E005C5953 /* AIColor.swift in Sources */,
 				4EB8AA9A1BC7E520005C5953 /* AILoginManager.swift in Sources */,
@@ -312,6 +327,7 @@
 				4EB8AA9B1BC7E520005C5953 /* KeychainWrapper.m in Sources */,
 				4EB8AAA41BC7EB4E005C5953 /* AIMicInteractionView.swift in Sources */,
 				4EB8AA9D1BC7E579005C5953 /* Constants.swift in Sources */,
+				4E3ACBD41BC81BDD00EA2C0C /* AIIntentValidationClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,10 +9,10 @@
 import UIKit
 import AVFoundation
 
-class AIDashboardViewController: AIBaseViewController {
+class AIDashboardViewController: AIBaseViewController , micViewProtocol{
     
     // MARK: - Properties
-
+    
     var intentArray : NSArray!
     
     // Outlets
@@ -32,9 +32,8 @@ class AIDashboardViewController: AIBaseViewController {
     }
     
     // MARK: - ViewSetup
-
+    
     func initializeProperties(){
-        intentArray = NSArray(objects: Constants.WITIntents.WITBlockCard, Constants.WITIntents.WITTransferMoney,  Constants.WITIntents.WITBalance, Constants.WITIntents.WITChangePIN)
         
         leftBarBtn.setTitleTextAttributes([NSFontAttributeName : UIFont.tingAssetsWithSize(25)], forState: UIControlState.Normal)
         rightBarBtn.setTitleTextAttributes([NSFontAttributeName : UIFont.tingAssetsWithSize(25)], forState: UIControlState.Normal)
@@ -49,6 +48,7 @@ class AIDashboardViewController: AIBaseViewController {
     
     func addMicInteractionView() {
         let micView : AIMicInteractionView = NSBundle.mainBundle().loadNibNamed("AIMicInteractionView", owner: nil, options: nil).first as! AIMicInteractionView
+        micView.delegate = self
         micView.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, micInteractionView.frame.height)
         micInteractionView.addSubview(micView)
     }
@@ -67,5 +67,12 @@ class AIDashboardViewController: AIBaseViewController {
         return attributedAmount
     }
     
+    //MARK : - Mic Delegate
+    
+    func userDidSelectIntent(intentModel : AIIntentModel) {
+        let validationVC : AIValidationViewController = AIValidationViewController.createValidationVCInstance()
+        validationVC.intentModel = intentModel
+        self.navigationController?.pushViewController(validationVC, animated: true)
+    }
     
 }
