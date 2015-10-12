@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import EventKit
 
 let leadingSpace : CGFloat = 25
 
@@ -63,9 +63,56 @@ class AIValidationViewController: AIBaseViewController {
         })
     }
     
+    func setReminderInCalender() {
+        let eventStore : EKEventStore = EKEventStore()
+        eventStore.requestAccessToEntityType(EKEntityType.Reminder, completion: {
+            granted, error in
+            if (granted) && (error == nil) {
+                
+                let reminder:EKReminder = EKReminder(eventStore: eventStore)
+                reminder.title = "FX Reminder"
+                reminder.notes = self.getReminderString()
+                
+                let calendar : EKCalendar = EKCalendar(forEntityType: EKEntityType.Reminder, eventStore: eventStore)
+                
+                
+                // Set the calendar title.
+                calendar.title = "Standard Chartered Bank";
+                calendar.CGColor = UIColor.SCBBrandBlueColor().CGColor
+                calendar.source = eventStore.defaultCalendarForNewReminders().source
+                do {
+                   try  eventStore.saveCalendar(calendar, commit: true)
+                    print("calendar saved")
+                    
+                    reminder.calendar = calendar
+                    do {
+                        try eventStore.saveReminder(reminder, commit: true)
+                        print("Saved Event")
+                        
+                    }
+                    catch {
+                        print("Saved Event errorrrrr")
+                    }
+                    
+                }
+                catch {
+                    print("calendar saved errorrrrr")
+                }
+            }
+        })
+    }
+    
     func userSetReminderSuccessfully() {
-        let currencyString = (intentModel.entity?.currency)! + "and SGD"
-        AISpeechClient.readCurrentString(Constants.AIStrings.AIReminderString + currencyString)
+        setReminderInCalender()
+//        let currencyString = getReminderString()
+        AISpeechClient.readCurrentString("Reminder Set")
+
+//        AISpeechClient.readCurrentString(Constants.AIStrings.AIReminderString + currencyString)
+    }
+    
+    func getReminderString() -> String {
+        return (intentModel.entity?.currency)! + " and SGD"
+
     }
     
     @IBAction func userChangedMind(sender: UIButton) {
