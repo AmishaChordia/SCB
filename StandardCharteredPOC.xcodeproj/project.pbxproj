@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E3ACBD31BC81BDD00EA2C0C /* AIValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3ACBD11BC81BDD00EA2C0C /* AIValidationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4E3ACBD41BC81BDD00EA2C0C /* AIIntentValidationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3ACBD21BC81BDD00EA2C0C /* AIIntentValidationClient.swift */; settings = {ASSET_TAGS = (); }; };
+		4E3ACBD71BCBC27100EA2C0C /* dashboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3ACBD61BCBC27100EA2C0C /* dashboard.png */; settings = {ASSET_TAGS = (); }; };
 		4E49AE4D1BC7CE9300E88CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49AE4C1BC7CE9300E88CBD /* AppDelegate.swift */; };
 		4E49AE521BC7CE9300E88CBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E49AE501BC7CE9300E88CBD /* Main.storyboard */; };
 		4E49AE551BC7CE9400E88CBD /* StandardCharteredPOC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E49AE531BC7CE9400E88CBD /* StandardCharteredPOC.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		4E3ACBD11BC81BDD00EA2C0C /* AIValidationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIValidationViewController.swift; sourceTree = "<group>"; };
 		4E3ACBD21BC81BDD00EA2C0C /* AIIntentValidationClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIIntentValidationClient.swift; sourceTree = "<group>"; };
+		4E3ACBD61BCBC27100EA2C0C /* dashboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard.png; sourceTree = "<group>"; };
 		4E49AE491BC7CE9300E88CBD /* StandardCharteredPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StandardCharteredPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E49AE4C1BC7CE9300E88CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E49AE511BC7CE9300E88CBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		4EB8AAA91BC7EC4E005C5953 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				4E3ACBD61BCBC27100EA2C0C /* dashboard.png */,
 				4EB8AAB81BC802F8005C5953 /* ting.ttf */,
 				4EB8AAAC1BC7ED9B005C5953 /* logo.png */,
 			);
@@ -263,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E3ACBD71BCBC27100EA2C0C /* dashboard.png in Resources */,
 				4EB8AAB91BC80303005C5953 /* ting.ttf in Resources */,
 				4E49AE5A1BC7CE9400E88CBD /* LaunchScreen.storyboard in Resources */,
 				4EB8AAAD1BC7ED9B005C5953 /* logo.png in Resources */,

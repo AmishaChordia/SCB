@@ -16,40 +16,26 @@ class AIDashboardViewController: AIBaseViewController , micViewProtocol{
     var intentArray : NSArray!
     
     // Outlets
-    
-    @IBOutlet weak var leftBarBtn: UIBarButtonItem!
-    @IBOutlet weak var rightBarBtn: UIBarButtonItem!
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var micInteractionView: UIView!
-    @IBOutlet weak var totalBalanceLabel: UILabel!
-    @IBOutlet weak var lastTransactionLabel: UILabel!
-    @IBOutlet weak var amountSpentMonthlyLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initializeProperties()
         setUpView()
     }
     
     // MARK: - ViewSetup
     
-    func initializeProperties(){
-        
-        leftBarBtn.setTitleTextAttributes([NSFontAttributeName : UIFont.tingAssetsWithSize(25)], forState: UIControlState.Normal)
-        rightBarBtn.setTitleTextAttributes([NSFontAttributeName : UIFont.tingAssetsWithSize(25)], forState: UIControlState.Normal)
-    }
-    
     func setUpView() {
-        totalBalanceLabel.attributedText = createAmountString("₹ 2,40,000")
-        lastTransactionLabel.attributedText = createAmountString("₹ 29,550")
-        amountSpentMonthlyLabel.attributedText = createAmountString("₹ 45,000")
         addMicInteractionView()
     }
     
     func addMicInteractionView() {
         let micView : AIMicInteractionView = NSBundle.mainBundle().loadNibNamed("AIMicInteractionView", owner: nil, options: nil).first as! AIMicInteractionView
         micView.delegate = self
-        micView.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, micInteractionView.frame.height)
+        
+        micView.frame = CGRectMake(0, 0, micInteractionView.frame.width,micInteractionView.frame.width)
         micInteractionView.addSubview(micView)
     }
     
@@ -75,4 +61,19 @@ class AIDashboardViewController: AIBaseViewController , micViewProtocol{
         self.navigationController?.pushViewController(validationVC, animated: true)
     }
     
+}
+
+extension AIDashboardViewController : UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(collectionView.frame.width, 2848)
+    } 
 }

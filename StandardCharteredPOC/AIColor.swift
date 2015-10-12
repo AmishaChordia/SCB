@@ -11,7 +11,7 @@ import UIKit
 extension UIColor {
     
     class func SCBBrandBlueColor() -> UIColor {
-        return UIColor(red: 0/255.0, green: 113/255.0, blue: 170/255.0, alpha: 1)
+        return UIColor(red: 67/255.0, green: 153/255.0, blue: 193/255.0, alpha: 1)
     }
     
     class func tingDarkBlueColor() -> UIColor {

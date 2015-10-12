@@ -14,7 +14,6 @@ protocol micViewProtocol {
 
 class AIMicInteractionView: UIView , WitDelegate {
     
-    @IBOutlet weak var micTextLabel: UILabel!
     @IBOutlet weak var micView: UIView!
     var delegate : micViewProtocol?
     
@@ -24,11 +23,13 @@ class AIMicInteractionView: UIView , WitDelegate {
     }
     
     func addWITMicButton() {
-        let button : WITMicButton = WITMicButton(frame: CGRectMake(0, 0, micSize, micSize))
+        let button : WITMicButton = WITMicButton(frame: CGRectMake(frame.width/2 - micSize/2, frame.height/2 - micSize/2, micSize, micSize))
         micView.addSubview(button)
     }
     
     func setUpViewProperties() {
+        backgroundColor = UIColor.SCBBrandBlueColor()
+        layer.cornerRadius = frame.width/2
         Wit.sharedInstance().delegate = self
         addWITMicButton()
     }
