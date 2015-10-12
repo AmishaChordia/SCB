@@ -28,6 +28,7 @@ class AIDashboardViewController: AIBaseViewController , micViewProtocol{
     // MARK: - ViewSetup
     
     func setUpView() {
+        edgesForExtendedLayout = .None
         addMicInteractionView()
     }
     
