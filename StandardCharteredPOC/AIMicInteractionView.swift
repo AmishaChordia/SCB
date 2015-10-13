@@ -28,7 +28,6 @@ class AIMicInteractionView: UIView , WitDelegate {
     }
     
     func setUpViewProperties() {
-        backgroundColor = UIColor.SCBBrandBlueColor()
         layer.cornerRadius = frame.width/2
         Wit.sharedInstance().delegate = self
         addWITMicButton()

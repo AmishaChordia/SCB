@@ -13,7 +13,7 @@
 
 static NSString* const kMicrophoneImage = @"microphone.png";
 static const CGFloat kMicHeight = 75.0f;
-static const CGFloat kMicWidth = 50.0f;
+static const CGFloat kMicWidth = 70.0f;
 static const CGFloat kMicMargin = 40.0f;
 
 @interface WITMicButton ()
@@ -29,14 +29,14 @@ static const CGFloat kMicMargin = 40.0f;
     self.clipsToBounds = NO;
 
     NSNumber* lineWidth = @(2.0);
-    UIColor* strokeColor = [UIColor colorWithRed:0.7f green:0.7f blue:0.7f alpha:0.5f];
+    UIColor* strokeColor = [UIColor clearColor];
     
     // outer circle
     self.outerCircleView = [[WITCircleView alloc] init];
     self.outerCircleView.opaque = NO;
     self.outerCircleView.backgroundColor = nil;
     self.outerCircleView.strokeColor = strokeColor;
-    self.outerCircleView.fillColor = [UIColor colorWithRed:0.94f green:0.94f blue:0.94f alpha:0.5f];
+    self.outerCircleView.fillColor = [UIColor colorWithRed: 22/255.0 green: 142/255.0 blue: 195/255.0 alpha: 0.5];
     self.outerCircleView.lineWidth = lineWidth;
     
     // inner circle
@@ -45,7 +45,7 @@ static const CGFloat kMicMargin = 40.0f;
     self.innerCircleView.backgroundColor = nil;
     self.innerCircleView.strokeColor = strokeColor;
     self.innerCircleView.lineWidth = lineWidth;
-    self.innerCircleView.fillColor = [UIColor whiteColor];;
+    self.innerCircleView.fillColor = [UIColor colorWithRed:16/255.0 green: 118/255.0 blue: 173/255.0 alpha: 1];
     
     // microphone mask
     // try to find image in mainBundle (CocoaPods), then frameworkBundle (.framework)
@@ -64,11 +64,11 @@ static const CGFloat kMicMargin = 40.0f;
     
     // sublayer for mic background
     self.microphoneLayer = [CALayer layer];
-    self.microphoneLayer.backgroundColor = [UIColor colorWithRed:0.50f green:0.50f blue:0.50f alpha:1.00f].CGColor;
+    self.microphoneLayer.backgroundColor = [UIColor whiteColor].CGColor;
     
     // sublayer for volume level
     self.volumeLayer = [CALayer layer];
-    self.volumeLayer.backgroundColor = [UIColor colorWithRed:0.50f green:0.50f blue:0.50f alpha:1.00f].CGColor;
+    self.volumeLayer.backgroundColor = [UIColor whiteColor].CGColor;
 
     [self addSubview:self.outerCircleView];
     [self insertSubview:self.innerCircleView aboveSubview:self.outerCircleView];
