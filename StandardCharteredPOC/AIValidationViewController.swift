@@ -11,16 +11,26 @@ import EventKit
 
 let leadingSpace : CGFloat = 25
 
-class AIValidationViewController: AIBaseViewController {
+class AIValidationViewController: AIBaseViewController, micViewProtocol {
+    
     // MARK: - Properties
     
-    
+    @IBOutlet weak var micView: UIView!
     @IBOutlet weak var intentRequestLabel: UILabel!
     var intentModel : AIIntentModel!
+    var currency : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setViewLabelsAndProperties()
+        addMicInteractionView()
+    }
+    
+    func addMicInteractionView() {
+        let witMic : AIMicInteractionView = NSBundle.mainBundle().loadNibNamed("AIMicInteractionView", owner: nil, options: nil).first as! AIMicInteractionView
+        witMic.delegate = self
+        witMic.frame = CGRectMake(0, 0, micView.frame.width,micView.frame.width)
+        micView.addSubview(witMic)
     }
     
     func setViewLabelsAndProperties() {
@@ -45,11 +55,18 @@ class AIValidationViewController: AIBaseViewController {
         return validationViewController
     }
     
+    // MARK: - Delegate Method
+    
+    func userDidSelectIntent(intentModel: AIIntentModel) {
+        self.intentModel = intentModel
+        intentRequestLabel.text = Constants.AIStrings.AIDeficitString + currency
+    }
+    
     // MARK: - IBAction methods
     
     @IBAction func userTappedTouchID(sender: UIButton) {
         AILoginManager.evaluateTouchIDAuthentication({ (success, authError) -> Void in
-          
+            
             if authError != nil {
                 return
             }
@@ -72,47 +89,42 @@ class AIValidationViewController: AIBaseViewController {
                 let reminder:EKReminder = EKReminder(eventStore: eventStore)
                 reminder.title = "FX Reminder"
                 reminder.notes = self.getReminderString()
-                
-                let calendar : EKCalendar = EKCalendar(forEntityType: EKEntityType.Reminder, eventStore: eventStore)
-                
-                
-                // Set the calendar title.
-                calendar.title = "Standard Chartered Bank";
-                calendar.CGColor = UIColor.SCBBrandBlueColor().CGColor
-                calendar.source = eventStore.defaultCalendarForNewReminders().source
+                let calendar : EKCalendar = self.createCalendar(eventStore)
                 do {
-                   try  eventStore.saveCalendar(calendar, commit: true)
-                    print("calendar saved")
-                    
+                    try  eventStore.saveCalendar(calendar, commit: true)
                     reminder.calendar = calendar
                     do {
                         try eventStore.saveReminder(reminder, commit: true)
-                        print("Saved Event")
-                        
                     }
                     catch {
-                        print("Saved Event errorrrrr")
                     }
                     
                 }
                 catch {
-                    print("calendar saved errorrrrr")
                 }
             }
         })
     }
     
+    func createCalendar(eventStore : EKEventStore) -> EKCalendar {
+        let calendar : EKCalendar = EKCalendar(forEntityType: EKEntityType.Reminder, eventStore: eventStore)
+        calendar.title = "Standard Chartered Bank";
+        calendar.CGColor = UIColor.SCBBrandBlueColor().CGColor
+        calendar.source = eventStore.defaultCalendarForNewReminders().source
+        return calendar
+    }
+    
     func userSetReminderSuccessfully() {
         setReminderInCalender()
-//        let currencyString = getReminderString()
+        //        let currencyString = getReminderString()
         AISpeechClient.readCurrentString("Reminder Set")
-
-//        AISpeechClient.readCurrentString(Constants.AIStrings.AIReminderString + currencyString)
+        
+        //        AISpeechClient.readCurrentString(Constants.AIStrings.AIReminderString + currencyString)
     }
     
     func getReminderString() -> String {
         return (intentModel.entity?.currency)! + " and SGD"
-
+        
     }
     
     @IBAction func userChangedMind(sender: UIButton) {

@@ -11,9 +11,6 @@ import AVFoundation
 
 class AIDashboardViewController: AIBaseViewController , micViewProtocol{
     
-    // MARK: - Properties
-    
-    var intentArray : NSArray!
     
     // Outlets
     @IBOutlet weak var collectionView: UICollectionView!
@@ -35,7 +32,6 @@ class AIDashboardViewController: AIBaseViewController , micViewProtocol{
     func addMicInteractionView() {
         let micView : AIMicInteractionView = NSBundle.mainBundle().loadNibNamed("AIMicInteractionView", owner: nil, options: nil).first as! AIMicInteractionView
         micView.delegate = self
-        
         micView.frame = CGRectMake(0, 0, micInteractionView.frame.width,micInteractionView.frame.width)
         micInteractionView.addSubview(micView)
     }
@@ -59,6 +55,7 @@ class AIDashboardViewController: AIBaseViewController , micViewProtocol{
     func userDidSelectIntent(intentModel : AIIntentModel) {
         let validationVC : AIValidationViewController = AIValidationViewController.createValidationVCInstance()
         validationVC.intentModel = intentModel
+        validationVC.currency = intentModel.entity?.currency
         self.navigationController?.pushViewController(validationVC, animated: true)
     }
     

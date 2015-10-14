@@ -18,7 +18,7 @@ class Constants {
 
     struct WITIntents {
         static let WITFxPosition : String = "FX_Position"
-       
+        static let WITFxDeficit : String = "FX_Deficit"
 
     }
     
@@ -31,6 +31,8 @@ class Constants {
         static let AIErrorString : String = "Sorry!  I did not get that. Please say that again!"
         static let AICurrencyErrorString : String = "Sorry! I did not clearly get the currency."
         static let AIReminderString : String = "Setting a reminder to book forex contracts for "
+        static let AIDeficitString : String = "You need FX worth "
+
     }
 
 }

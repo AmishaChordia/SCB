@@ -42,9 +42,18 @@ class AIMicInteractionView: UIView , WitDelegate {
                 if let dataDict : NSDictionary = outcomes.first as? NSDictionary {
                     
                     let userIntent : AIIntentModel = AIIntentModel(dict: dataDict)
-                    if userIntent.entity?.currency != nil {
-                        // data is correct
-                       self.delegate?.userDidSelectIntent(userIntent)
+                    
+                    if userIntent.intent == Constants.WITIntents.WITFxDeficit {
+                        self.delegate?.userDidSelectIntent(userIntent)
+                    }
+                    else if userIntent.intent == Constants.WITIntents.WITFxPosition {
+                        if userIntent.entity?.currency != nil {
+                            // data is correct
+                            self.delegate?.userDidSelectIntent(userIntent)
+                        }
+                        else {
+                            errorUnderstandingIntent(Constants.AIStrings.AICurrencyErrorString)
+                        }
                     }
                     else {
                         errorUnderstandingIntent(Constants.AIStrings.AICurrencyErrorString)
