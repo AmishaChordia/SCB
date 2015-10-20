@@ -12,15 +12,15 @@ class AIIntentValidationClient: NSObject {
     
     
     
-    func generateStringForIntent(intentObj : AIIntentModel) -> String {
+    func generateStringForIntent(intentObj : AIIntentModel, FXValue : String) -> String {
         
         if intentObj.intent == Constants.WITIntents.WITFxPosition {
-            return getStringWithEntitiesForFxPosition(intentObj)
+            return getStringWithEntitiesForFxPosition(intentObj, FXValue: FXValue)
         }
         return ""
     }
     
-    func getStringWithEntitiesForFxPosition(intentObj : AIIntentModel) -> String {
+    func getStringWithEntitiesForFxPosition(intentObj : AIIntentModel, FXValue : String) -> String {
     
         var validationStr : String = ""
         if let entity = intentObj.entity {
@@ -29,10 +29,10 @@ class AIIntentValidationClient: NSObject {
                 if let time = entity.datetime {
                     
                     
-                    validationStr = "FX Position for \(currency) for \(getDateAsString(time)) is \(currency) 1.35m  |  SGD 1.56m"
+                    validationStr = "FX Position for \(currency) for \(getDateAsString(time)) is \(currency) \(FXValue)mn  |  SGD 1mn"
                 }
                 else {
-                    validationStr = "FX Position for \(currency) is \(currency) 1.35m  |  SGD 1.56m"
+                    validationStr = "FX Position for \(currency) is \(currency) \(FXValue)mn  |  SGD 1mn"
                 }
             }
         }

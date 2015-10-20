@@ -16,6 +16,7 @@
 		4E49AE571BC7CE9400E88CBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E49AE561BC7CE9400E88CBD /* Assets.xcassets */; };
 		4E49AE5A1BC7CE9400E88CBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E49AE581BC7CE9400E88CBD /* LaunchScreen.storyboard */; };
 		4E522EF01BC7DA8300C3B574 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E522EEF1BC7DA8300C3B574 /* AVFoundation.framework */; };
+		4E76A8DA1BD6AEC900583C50 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76A8D91BD6AEC900583C50 /* Webservice.swift */; settings = {ASSET_TAGS = (); }; };
 		4EB8AA991BC7E520005C5953 /* AILoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB8AA951BC7E520005C5953 /* AILoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4EB8AA9A1BC7E520005C5953 /* AILoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB8AA961BC7E520005C5953 /* AILoginManager.swift */; settings = {ASSET_TAGS = (); }; };
 		4EB8AA9B1BC7E520005C5953 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB8AA981BC7E520005C5953 /* KeychainWrapper.m */; settings = {ASSET_TAGS = (); }; };
@@ -47,6 +48,7 @@
 		4E49AE5B1BC7CE9400E88CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E522EEF1BC7DA8300C3B574 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4E522EF11BC7DAC500C3B574 /* StandardCharteredPOC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StandardCharteredPOC-Bridging-Header.h"; sourceTree = "<group>"; };
+		4E76A8D91BD6AEC900583C50 /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		4EB8AA951BC7E520005C5953 /* AILoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginViewController.swift; sourceTree = "<group>"; };
 		4EB8AA961BC7E520005C5953 /* AILoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AILoginManager.swift; sourceTree = "<group>"; };
 		4EB8AA971BC7E520005C5953 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				4E49AE531BC7CE9400E88CBD /* StandardCharteredPOC.xcdatamodeld */,
 				4E522EF11BC7DAC500C3B574 /* StandardCharteredPOC-Bridging-Header.h */,
 				4E49AE561BC7CE9400E88CBD /* Assets.xcassets */,
+				4E76A8D91BD6AEC900583C50 /* Webservice.swift */,
 			);
 			path = StandardCharteredPOC;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				4EB8AAA41BC7EB4E005C5953 /* AIMicInteractionView.swift in Sources */,
 				4EB8AA9D1BC7E579005C5953 /* Constants.swift in Sources */,
 				4E3ACBD41BC81BDD00EA2C0C /* AIIntentValidationClient.swift in Sources */,
+				4E76A8DA1BD6AEC900583C50 /* Webservice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

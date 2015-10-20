@@ -53,12 +53,36 @@ class AIDashboardViewController: AIBaseViewController , micViewProtocol{
     //MARK : - Mic Delegate
     
     func userDidSelectIntent(intentModel : AIIntentModel) {
-        let validationVC : AIValidationViewController = AIValidationViewController.createValidationVCInstance()
-        validationVC.intentModel = intentModel
-        validationVC.currency = intentModel.entity?.currency
-        self.navigationController?.pushViewController(validationVC, animated: true)
+        
+        let currency = intentModel.entity?.currency ?? "usd"
+        
+        getFXData(currency) { (fxCurrencyValue) -> Void in
+            self.pushToValidationView(intentModel, fxPosition: fxCurrencyValue)
+        }
+    
     }
     
+    func pushToValidationView(intentModel : AIIntentModel , fxPosition : String) {
+        let validationVC : AIValidationViewController = AIValidationViewController.createValidationVCInstance()
+        validationVC.intentModel = intentModel
+        validationVC.FXValue = fxPosition
+        validationVC.currency = intentModel.entity?.currency
+        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.navigationController?.pushViewController(validationVC, animated: true)
+        }
+    }
+}
+
+//MARK : - WebService
+
+extension AIDashboardViewController {
+    func getFXData(currencyStr : String ,   completionHandler : ((fxCurrencyValue : String) -> Void)) {
+        
+        Webservice.sharedInstance.getFXRates(currencyStr) { (fxValue) -> () in
+           completionHandler(fxCurrencyValue: fxValue)
+        }
+    }
 }
 
 extension AIDashboardViewController : UICollectionViewDataSource {

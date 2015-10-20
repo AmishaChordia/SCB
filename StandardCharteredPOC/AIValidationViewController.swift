@@ -19,7 +19,7 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
     @IBOutlet weak var intentRequestLabel: UILabel!
     var intentModel : AIIntentModel!
     var currency : String!
-    
+    var FXValue : String!
     override func viewDidLoad() {
         super.viewDidLoad()
         setViewLabelsAndProperties()
@@ -36,7 +36,7 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
     func setViewLabelsAndProperties() {
         view.backgroundColor = UIColor.whiteColor()
         let validationClient = AIIntentValidationClient()
-        let intentRequestLabelString = validationClient.generateStringForIntent(intentModel)
+        let intentRequestLabelString = validationClient.generateStringForIntent(intentModel,FXValue: FXValue)
         
         if intentRequestLabelString.characters.count > 0 {
             intentRequestLabel.text = intentRequestLabelString
