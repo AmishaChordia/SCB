@@ -32,6 +32,11 @@ class Webservice {
         
         session.dataTaskWithRequest(request) { (data, response, error) -> Void in
 
+            if error != nil {
+                AISpeechClient.readCurrentString(Constants.AIStrings.AINetworkErrorString)
+                return
+            }
+            
             if data != nil && error == nil {
                 do {
                     let jsonObj = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
@@ -58,7 +63,6 @@ class Webservice {
 
                 }
                 catch {
-                    
                 }
                 
             }

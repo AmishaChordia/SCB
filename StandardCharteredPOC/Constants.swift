@@ -28,10 +28,14 @@ class Constants {
     }
     
     struct AIStrings {
+        static let AINetworkErrorString : String = "Sorry!  Please be on Deloitte network to view your FX position!"
+
         static let AIErrorString : String = "Sorry!  I did not get that. Please say that again!"
         static let AICurrencyErrorString : String = "Sorry! I did not clearly get the currency."
         static let AIReminderString : String = "Setting a reminder to book forex contracts for "
-        static let AIDeficitString : String = "You need FX worth "
+        static let AIDeficitString : String = "You need FX worth 0.5mn "
+        static let AINotificationString : String = "Do you want to set a reminder to book FX Contracts?"
+        
 
     }
 

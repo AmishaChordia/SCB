@@ -271,12 +271,12 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrZ-2Y-gUK">
-                                <rect key="frame" x="52" y="159" width="270" height="350"/>
+                                <rect key="frame" x="37" y="159" width="300" height="350"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="cvl-Rx-4WV"/>
+                                    <constraint firstAttribute="width" constant="300" id="cvl-Rx-4WV"/>
                                     <constraint firstAttribute="height" constant="350" id="wHo-cC-RHe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                 <color key="textColor" red="0.086274509799999996" green="0.5568627451" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

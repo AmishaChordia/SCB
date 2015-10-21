@@ -10,7 +10,7 @@ import UIKit
 import EventKit
 
 let leadingSpace : CGFloat = 25
-
+let calendarTitle = "Standard Chartered Bank"
 class AIValidationViewController: AIBaseViewController, micViewProtocol {
     
     // MARK: - Properties
@@ -47,6 +47,14 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
         
     }
     
+    func askUserToNotify() {
+        let notificationStr = Constants.AIStrings.AINotificationString
+        AISpeechClient.readCurrentString(notificationStr)
+        intentRequestLabel.text = notificationStr
+        self.userSetReminderSuccessfully()
+
+    }
+    
     // MARK: - Utility methods
     
     static func createValidationVCInstance() -> AIValidationViewController {
@@ -60,6 +68,9 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
     func userDidSelectIntent(intentModel: AIIntentModel) {
         self.intentModel = intentModel
         intentRequestLabel.text = Constants.AIStrings.AIDeficitString + currency
+        let deficit = intentRequestLabel.text?.stringByReplacingOccurrencesOfString("mn", withString: "million") ?? ""
+        AISpeechClient.readCurrentString(deficit)
+        performSelector("askUserToNotify", withObject: nil, afterDelay: 5.0)
     }
     
     // MARK: - IBAction methods
@@ -89,6 +100,7 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
                 let reminder:EKReminder = EKReminder(eventStore: eventStore)
                 reminder.title = "FX Reminder"
                 reminder.notes = self.getReminderString()
+                
                 let calendar : EKCalendar = self.createCalendar(eventStore)
                 do {
                     try  eventStore.saveCalendar(calendar, commit: true)
@@ -107,8 +119,16 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
     }
     
     func createCalendar(eventStore : EKEventStore) -> EKCalendar {
+        
+        let calendarArray = eventStore.calendarsForEntityType(EKEntityType.Reminder)
+        for calendarObj in calendarArray {
+            if calendarObj.title == calendarTitle {
+                return calendarObj
+            }
+        }
+        
         let calendar : EKCalendar = EKCalendar(forEntityType: EKEntityType.Reminder, eventStore: eventStore)
-        calendar.title = "Standard Chartered Bank";
+        calendar.title = calendarTitle;
         calendar.CGColor = UIColor.SCBBrandBlueColor().CGColor
         calendar.source = eventStore.defaultCalendarForNewReminders().source
         return calendar
@@ -117,13 +137,13 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
     func userSetReminderSuccessfully() {
         setReminderInCalender()
         //        let currencyString = getReminderString()
-        AISpeechClient.readCurrentString("Reminder Set")
+//        AISpeechClient.readCurrentString("Reminder Set")
         
         //        AISpeechClient.readCurrentString(Constants.AIStrings.AIReminderString + currencyString)
     }
     
     func getReminderString() -> String {
-        return (intentModel.entity?.currency)! + " and SGD"
+        return currency + " and SGD"
         
     }
     

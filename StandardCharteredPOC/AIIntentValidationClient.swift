@@ -37,8 +37,8 @@ class AIIntentValidationClient: NSObject {
             }
         }
         
-    
-        AISpeechClient.readCurrentString(validationStr)
+        
+        AISpeechClient.readCurrentString(validationStr.stringByReplacingOccurrencesOfString("mn", withString: "million"))
         return validationStr
     }
     
