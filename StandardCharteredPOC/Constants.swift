@@ -19,6 +19,8 @@ class Constants {
     struct WITIntents {
         static let WITFxPosition : String = "FX_Position"
         static let WITFxDeficit : String = "FX_Deficit"
+        static let WITFxConfirm : String = "confirm"
+        static let WITFxReject : String = "reject"
 
     }
     

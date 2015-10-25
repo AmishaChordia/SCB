@@ -43,7 +43,7 @@ class AIMicInteractionView: UIView , WitDelegate {
                     
                     let userIntent : AIIntentModel = AIIntentModel(dict: dataDict)
                     
-                    if userIntent.intent == Constants.WITIntents.WITFxDeficit {
+                    if userIntent.intent == Constants.WITIntents.WITFxDeficit || userIntent.intent == Constants.WITIntents.WITFxReject || userIntent.intent == Constants.WITIntents.WITFxConfirm {
                         self.delegate?.userDidSelectIntent(userIntent)
                     }
                     else if userIntent.intent == Constants.WITIntents.WITFxPosition {

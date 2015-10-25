@@ -51,7 +51,7 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
         let notificationStr = Constants.AIStrings.AINotificationString
         AISpeechClient.readCurrentString(notificationStr)
         intentRequestLabel.text = notificationStr
-        self.userSetReminderSuccessfully()
+        //self.userSetReminderSuccessfully()
 
     }
     
@@ -67,28 +67,23 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
     
     func userDidSelectIntent(intentModel: AIIntentModel) {
         self.intentModel = intentModel
-        intentRequestLabel.text = Constants.AIStrings.AIDeficitString + currency
-        let deficit = intentRequestLabel.text?.stringByReplacingOccurrencesOfString("mn", withString: "million") ?? ""
-        AISpeechClient.readCurrentString(deficit)
-        performSelector("askUserToNotify", withObject: nil, afterDelay: 5.0)
-    }
-    
-    // MARK: - IBAction methods
-    
-    @IBAction func userTappedTouchID(sender: UIButton) {
-        AILoginManager.evaluateTouchIDAuthentication({ (success, authError) -> Void in
-            
-            if authError != nil {
-                return
+        
+        if let intent = intentModel.intent {
+            if intent == Constants.WITIntents.WITFxConfirm {
+              userSetReminderSuccessfully()
+              returnToDashBoardView()
+
             }
-            else if let isSuccess = success {
-                if isSuccess {
-                    dispatch_after(0, dispatch_get_main_queue(), { () -> Void in
-                        self.userSetReminderSuccessfully()
-                    })
-                }
+            else if intent == Constants.WITIntents.WITFxReject {
+                returnToDashBoardView()
             }
-        })
+            else if intent == Constants.WITIntents.WITFxDeficit {
+                intentRequestLabel.text = Constants.AIStrings.AIDeficitString + currency
+                let deficit = intentRequestLabel.text?.stringByReplacingOccurrencesOfString("mn", withString: "million") ?? ""
+                AISpeechClient.readCurrentString(deficit)
+                performSelector("askUserToNotify", withObject: nil, afterDelay: 4.0)
+            }
+        }
     }
     
     func setReminderInCalender() {
@@ -107,6 +102,7 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
                     reminder.calendar = calendar
                     do {
                         try eventStore.saveReminder(reminder, commit: true)
+                        AISpeechClient.readCurrentString("Reminder Set")
                     }
                     catch {
                     }
@@ -136,19 +132,11 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
     
     func userSetReminderSuccessfully() {
         setReminderInCalender()
-        //        let currencyString = getReminderString()
-//        AISpeechClient.readCurrentString("Reminder Set")
-        
-        //        AISpeechClient.readCurrentString(Constants.AIStrings.AIReminderString + currencyString)
-    }
+  }
     
     func getReminderString() -> String {
         return currency + " and SGD"
         
-    }
-    
-    @IBAction func userChangedMind(sender: UIButton) {
-        returnToDashBoardView()
     }
     
     func returnToDashBoardView() {
