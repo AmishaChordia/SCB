@@ -10,7 +10,7 @@ import UIKit
 import EventKit
 
 let leadingSpace : CGFloat = 25
-let calendarTitle = "Standard Chartered Bank"
+let calendarTitle = "SCB - S2B"
 class AIValidationViewController: AIBaseViewController, micViewProtocol {
     
     // MARK: - Properties
