@@ -63,8 +63,12 @@ class AIValidationViewController: AIBaseViewController, micViewProtocol {
         return validationViewController
     }
     
+    @IBAction func backButtonTapped(sender: UIBarButtonItem) {
+        returnToDashBoardView()
+    }
+
     // MARK: - Delegate Method
-    
+
     func userDidSelectIntent(intentModel: AIIntentModel) {
         self.intentModel = intentModel
         

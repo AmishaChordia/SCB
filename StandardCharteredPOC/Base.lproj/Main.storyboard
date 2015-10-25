@@ -259,7 +259,14 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.086274509803921567" green="0.55686274509803924" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="FX Position" id="AHR-RW-sus"/>
+                                    <navigationItem title="FX Position" id="AHR-RW-sus">
+                                        <barButtonItem key="leftBarButtonItem" image="arrow_left.png" id="hLz-uv-09Y">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="backButtonTapped:" destination="MIF-VB-f9E" id="wAS-8O-g78"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9vV-wD-Qkw">
@@ -305,6 +312,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_left.png" width="52" height="45"/>
         <image name="dashboard.png" width="667" height="5066"/>
         <image name="logo.png" width="800" height="308"/>
     </resources>
